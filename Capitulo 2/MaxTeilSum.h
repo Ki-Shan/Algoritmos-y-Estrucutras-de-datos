@@ -10,7 +10,7 @@ int max(int a, int b) {
 		return a;
 }
 
-int MaxTeilsum4(int a[], int f, int l) {
+int MaxTeilsum(int a[], int f, int l) {
 	int n = l - f + 1;
 	if (n == 1) 
 		return a[f];
@@ -30,7 +30,7 @@ int MaxTeilsum4(int a[], int f, int l) {
 				MaxBorderSum2 = currVal;
 			i++;
 		}
-		return max(MaxTeilsum4(a, f, f + newn - 1),
-			max(MaxTeilsum4(a, f + newn, l), MaxBorderSum1 + MaxBorderSum2));
+		return max(MaxTeilsum(a, f, f + newn - 1),
+				   max(MaxTeilsum(a, f + newn, l), MaxBorderSum1 + MaxBorderSum2));
 	}
 }
