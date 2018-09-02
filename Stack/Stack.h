@@ -18,14 +18,14 @@ private:
 	int tp;		
 public:
 	stack() = default;
-	stack(int n);			// creates a empty stack (max: n objects)
-	~stack();				// free the stack memory
-	void push(object o);	// load an value object on the stack
-	object pop();			// hold and delete the last element on the stack
-	object top();			// return the last element on the stack
-	bool isEmpty();			// return true if stack empty
-	bool isFull();			// return true if stack full
-	void print();			// prints all elements on stack
+	stack(int n);		// creates a empty stack (max: n objects)
+	~stack();			// free the stack memory
+	void push(object o);// load an value object on the stack
+	object pop();		// hold and delete the last element on the stack
+	object top();		// return the last element on the stack
+	bool isEmpty();		// return true if stack empty
+	bool isFull();		// return true if stack full
+	void print();		// prints all elements on stack
 };
 
 stack::stack(int n) {
