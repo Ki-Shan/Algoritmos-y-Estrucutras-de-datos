@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 
 namespace Basics {
 	void Insertionsort(int a[], int n) {
@@ -53,16 +52,19 @@ namespace Advanced {
 		}
 
 		void preparePartition(int a[], int f, int l, int& p) {
-			// Pivot-Element
-			int pivot = a[f]; p = f - 1;
-			for (int i = f; i <= l; i++) {
-				if (a[i] <= pivot) {
-					p++;
+			// Use the last element as Pivot-Element
+			int pivot = a[l];
+			//set the pointer to the next to the last element
+			p = l + 1;
+			//go throgh the array backwards
+			for (int i = l; i >= f; i--) {
+				if (a[i] >= pivot) {
+					p--;
 					swap(a[i], a[p]);
 				}
 			}
 			// Pivot on the rigth Pos.
-			swap(a[f], a[p]);
+			swap(a[l], a[p]);
 		}
 
 		void quicksort(int a[], int f, int l) {
@@ -87,8 +89,10 @@ namespace Advanced {
 						if (a[a1f] <= a[a2f])
 							anew[i] = a[a1f++];
 						else anew[i] = a[a2f++];
-					}else anew[i] = a[a1f++];
-				}else anew[i] = a[a2f++];
+					}
+					else anew[i] = a[a1f++];
+				}
+				else anew[i] = a[a2f++];
 			}
 			for (i = 0; i<n; i++)
 				a[f + i] = anew[i];
@@ -168,16 +172,16 @@ namespace Specials {
 		void Mapsort(int a[], int n, double c) {
 			int newn = (int)((double)n*c), i, j = 0;
 			int*bin = new int[newn], max = INT_MIN, min = INT_MAX;// create array bin : size newn
-			for (i = 0; i < newn; i++) 
+			for (i = 0; i < newn; i++)
 				bin[i] = -1;	// initialize array bin 
 			for (i = 0; i < n; i++)// calcule min, max 
 				if (a[i]<min) min = a[i];
-			else 
-				if(a[i]>max) max = a[i];
+				else
+					if (a[i]>max) max = a[i];
 			double dist = (double)(max - min) / (double)(newn - 1);// calcule distance 
 			for (i = 0; i < n; i++) {// load element from a in bin .
 				int t = (int)((double)(a[i] - min) / dist), insert = a[i], left = 0;
-				if (bin[t] != -1 && insert <= bin[t]) 
+				if (bin[t] != -1 && insert <= bin[t])
 					left = 1;
 				while (bin[t] != -1) {
 					if (left == 1) {
@@ -191,8 +195,8 @@ namespace Specials {
 				}
 				bin[t] = insert;
 			}
-			for (i = 0; i<newn; i++) 
-				if (bin[i] != -1) 
+			for (i = 0; i<newn; i++)
+				if (bin[i] != -1)
 					a[j++] = bin[i];// insert it again in a 
 			delete[] bin;// clean
 		}
