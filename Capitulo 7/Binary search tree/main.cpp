@@ -15,6 +15,7 @@ int main() {
 	A.insert(11);
 	A.insert(13);
 	A.printTree();
+	A.print_Inorder();
 
 	std::cout << "\nBorrando elemento: " << 10;
 	A.delete_val(10);
