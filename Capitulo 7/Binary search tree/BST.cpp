@@ -140,7 +140,6 @@ void searchtree::removeTarget(treeElement * &root, object o) {
 		}
 		return;
 	}
-
 }
 
 treeElement*& searchtree::search_inorder(treeElement * &elem)
@@ -181,10 +180,8 @@ void searchtree::insert(treeElement * currRoot, treeElement * elem) {
 	}
 }
 
-void searchtree::print_Inorder() {	
-	cout << "\nArbol Inorder: \n--------------------------------\n\n";
+void searchtree::print_Inorder() {
 	print_Inorder(root); cout << endl;
-	cout << "\n--------------------------------\n\n";
 }
 
 void searchtree::print_Inorder(treeElement * root) {
